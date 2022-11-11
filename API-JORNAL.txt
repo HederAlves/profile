@@ -1,0 +1,9 @@
+Olá do Guardião.
+
+Obrigado por se registrar na plataforma aberta.
+
+Uma nova chave foi criada para você: dfcbfff8-c3a3-44c8-9c6b-e2373b 66da9c
+
+Você pode experimentar esta chave acessando https://content.guardianapis.c om/search?api-key=dfcbfff8-c3a 3-44c8- 9c6b-e2373b66da9c no seu navegador.
+
+Para mais detalhes sobre como usar a API de plataforma aberta, confira a documentação disponível em http://open-platform.theguardi an.com/documentation/
