@@ -1,22 +1,11 @@
-import { gql, useQuery } from "@apollo/client";
-
-type ResultantGET = {
-  id: string;
-  response: string;
-};
-
-const GET_NEWS = gql`
-  query {
-    resultantGET {
-      response
-    }
-  }
-`;
+import { useQuery } from "@apollo/client";
+import type { Response } from '../src/types/index'; //@app/types
+import { GET_NEWS, } from './graphql/queries/news'
 
 function App() {
-  const { data, loading } = useQuery<{ resultantGET: ResultantGET[] }>(GET_NEWS);
+  const { data, loading } = useQuery<{ response: Response[] }>(GET_NEWS);
 
-  console.log();
+  console.log(data);
 
   if (loading) {
     return <p>Carregando...</p>;
@@ -24,8 +13,8 @@ function App() {
 
   return (
     <ul>
-      {data?.resultantGET.map((news) => (
-        <li key={news.id}>{news.response}</li>
+      {data?.response.map((news) => (
+        <li>{news.status}</li>
       ))}
     </ul>
   );

@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 
 export const client = new ApolloClient({
-    uri: 'https://content.guardianapis.com/search?api-key=dfcbfff8-c3a3-44c8-9c6b-e2373b66da9c',
+    uri: 'https://content.guardianapis.com/search?q=debate%20AND%20economy&tag=politics/politics&from-date=2014-01-01&api-key=test',
     cache: new InMemoryCache(),
 })
