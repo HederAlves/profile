@@ -6,6 +6,7 @@ function App() {
   const { data, loading } = useQuery<{ response: Response[] }>(GET_NEWS);
 
   console.log(data);
+  console.log(GET_NEWS);
 
   if (loading) {
     return <p>Carregando...</p>;
