@@ -1,0 +1,5 @@
+npm create vite@latest
+
+npm i @apollo/client graphql
+
+npm run dev
