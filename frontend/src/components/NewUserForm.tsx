@@ -3,9 +3,8 @@ import { FormEvent, useState } from 'react';
 import { GET_USERS } from '../graphql/queries/Users';
 //import { client } from '../lib/apollo';
 
-
 const CREATE_USER = gql`
-    mutation ($name: String) {
+    mutation ($name: String!) {
         createUser(name: $name) {
             id
             name
@@ -15,7 +14,7 @@ const CREATE_USER = gql`
 
 export function NewUserForm() {
     const [name, setName] = useState('');
-    const [createUser] = useMutation(CREATE_USER);
+    const [createUser, { data, loading, error}]= useMutation(CREATE_USER);
 
     async function handleCreateUser(event: FormEvent) {
         event.preventDefault();
@@ -28,6 +27,7 @@ export function NewUserForm() {
             variables: {
                 name,
             },
+            
             //Buscando do backend
             refetchQueries:[GET_USERS]
 
@@ -46,6 +46,7 @@ export function NewUserForm() {
             })
            } */
         })
+        console.log(data)
     }
 
     return (
