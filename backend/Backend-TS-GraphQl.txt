@@ -1,0 +1,13 @@
+npm init -y
+
+npm i type-graphql graphql apollo-server class-validator reflect-metadata
+npm i typescript ts-node-dev -D
+
+
+decorator funcionar
+
+npx init -y
+npx tsc --init
+
+
+npm start
