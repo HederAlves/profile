@@ -1,23 +1,31 @@
-import { useQuery } from "@apollo/client";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import type { User } from '../src/types/index';
 import { GET_USERS } from '../src/graphql/queries/Users'
 import { NewUserForm } from "./components/NewUserForm";
-import { REMOVE_USERS } from "./graphql/mutation/DeleteUpdateUsers";
+import { Button, Card, Layout } from "./style";
 
+const REMOVE_USER = gql`
+    mutation removeUser($id: String!) {
+        removeUser(id: $id) {
+            id
+        }
+    }
+`
 
 function App() {
   const { data, loading } = useQuery<{ user: User[] }>(GET_USERS);
+  const remove = useMutation(REMOVE_USER);
 
   if (loading) {
     return <p>Carregando...</p>;
   } 
     return (
-      <div>
-        <ul>
-          { data?.user.map(x => <li key={x.id}>{x.name}<button onClick={(e) => REMOVE_USERS}>Excluir</button></li>) }
-        </ul>
+      <>
         <NewUserForm />
-      </div>
+        <Layout>
+            { data?.user.map(x => <Card key={x.id}>{x.name}<Button onClick={(e) => remove }>Excluir</Button></Card>) }
+        </Layout>
+      </>
     )
 }
 
