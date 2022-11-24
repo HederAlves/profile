@@ -52,7 +52,7 @@ export function NewUserForm() {
     return (
         <form onSubmit={handleCreateUser}>
             <input type="text" value={name} onChange={e => setName(e.target.value)} />
-            <button type="submit">Enviar</button>
+            <button type="submit">Cadastrar</button>
         </form>
     );
 }
