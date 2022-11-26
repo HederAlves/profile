@@ -6,7 +6,7 @@ import { Context } from "vm";
 @Resolver()
 export class UserResolver {
     private data: user[] = [];
-    service: any;
+    private id: any;
 
     @Query(() => [user])
     async user() {
@@ -25,8 +25,8 @@ export class UserResolver {
     @Mutation(() => user)
     async removeUser(
         @Ctx() context: Context,
-        @Arg('userId') userId: string
+        @Arg('id') id: string
     ): Promise<user> {
-        return this.service.remove(context, userId)
+        return this.id.remove(context, id)
     }
 }
