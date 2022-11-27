@@ -23,10 +23,10 @@ export class UserResolver {
     }
 
     @Mutation(() => user)
-    async removeUser(
+    async deleteUser(
         @Ctx() context: Context,
         @Arg('id') id: string
     ): Promise<user> {
-        return this.id.remove(context, id)
+        return this.id.deleteUser(context, id)
     }
 }
