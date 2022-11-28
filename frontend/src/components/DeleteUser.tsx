@@ -1,7 +1,7 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { FormEvent } from "react";
 import { GET_USERS } from "../graphql/queries/Users";
-
+import { Button } from "../style";
 
 const DELETE_USER = gql`
   mutation ($id: String) {
@@ -34,7 +34,7 @@ export function DeleteUser() {
   }
   return (
     <form onSubmit={handleCreateUser}>
-        <button type="submit">Excluir</button>
+        <Button type="submit">Excluir</Button>
     </form>
 );
 }
