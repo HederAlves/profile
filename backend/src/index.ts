@@ -15,8 +15,8 @@ async function main(){
         schema
     })
 
-    await apolloServer.listen(7080)
-    console.log(`Server running on port 7080`);
+    await apolloServer.listen(4000)
+    console.log(`Server running on port 4000`);
 }
 
 main()
