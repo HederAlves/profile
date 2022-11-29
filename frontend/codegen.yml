@@ -1,8 +1,8 @@
 overwrite: true
-schema: "http://localhost:7080"
+schema: "http://localhost:4000"
 documents: "src/graphql/queries/Users.ts"
 generates:
-  src/codegen/index.ts:
+  src/gql/:
     preset: "client"
     plugins: []
   ./graphql.schema.json:

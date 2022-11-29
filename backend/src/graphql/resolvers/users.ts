@@ -6,7 +6,6 @@ import { Context } from "vm";
 @Resolver()
 export class UserResolver {
     private data: user[] = [];
-    private id: any;
 
     @Query(() => [user])
     async user() {
@@ -22,11 +21,36 @@ export class UserResolver {
         return user;
     }
 
-    @Mutation(() => user)
+    /* @Mutation(() => user)
     async deleteUser(
         @Ctx() context: Context,
         @Arg('id') id: string
     ): Promise<user> {
-        return this.id.deleteUser(context, id)
+        return this.deleteUser(context, id)
+    } */
+
+    @Mutation(_ => Boolean)
+    async deleteUser(
+        @Ctx() context: Context,
+        @Arg("id") id: string
+        ): Promise<boolean> {
+            const index = this.data.findIndex(user => user.id === id);
+            if (index > -1) {
+                this.data.splice(index, 1);
+                return true;
+            }
+     {
+        user.deleteUser(context, id);
+        return true;
+    }}
+    
+    @Mutation(_ => Boolean)
+    async updateUser(
+        @Ctx() context: Context,
+        @Arg("id") id: string,
+        @Arg("name") name: string
+        ) {
+        user.updateUser(context, id, name);
+        return true;
     }
 }
