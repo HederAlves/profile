@@ -17,7 +17,8 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation';
   createUser: User;
-  deleteUser: User;
+  deleteUser: Scalars['Boolean'];
+  updateUser: Scalars['Boolean'];
 };
 
 
@@ -28,6 +29,12 @@ export type MutationCreateUserArgs = {
 
 export type MutationDeleteUserArgs = {
   id: Scalars['String'];
+};
+
+
+export type MutationUpdateUserArgs = {
+  id: Scalars['String'];
+  name: Scalars['String'];
 };
 
 export type Query = {
@@ -130,7 +137,8 @@ export type ResolversParentTypes = {
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createUser?: Resolver<ResolversTypes['user'], ParentType, ContextType, RequireFields<MutationCreateUserArgs, 'name'>>;
-  deleteUser?: Resolver<ResolversTypes['user'], ParentType, ContextType, RequireFields<MutationDeleteUserArgs, 'id'>>;
+  deleteUser?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationDeleteUserArgs, 'id'>>;
+  updateUser?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<MutationUpdateUserArgs, 'id' | 'name'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
