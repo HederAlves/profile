@@ -1,25 +1,17 @@
-import { gql, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { FormEvent, useState } from 'react';
+import { CREATE_USER } from '../graphql/mutation/User';
 import { GET_USERS } from '../graphql/queries/Users';
 //import { client } from '../lib/apollo';
 
-const CREATE_USER = gql`
-    mutation ($name: String!) {
-        createUser(name: $name) {
-            id
-            name
-        }
-    }
-`;
-
 export function NewUserForm() {
     const [name, setName] = useState('');
-    const [createUser, { data, loading, error}]= useMutation(CREATE_USER);
+    const [createUser] = useMutation(CREATE_USER);
 
     async function handleCreateUser(event: FormEvent) {
         event.preventDefault();
-    
-        if(!name) {
+
+        if (!name) {
             return;
         }
 
@@ -27,26 +19,25 @@ export function NewUserForm() {
             variables: {
                 name,
             },
-            
+
             //Buscando do backend
-            refetchQueries:[GET_USERS]
+            refetchQueries: [GET_USERS]
 
-           //Pelo cache
-         /*  update: (cache, { data: { createUser } }) => {
-            const { users } = client.readQuery({ query: GET_USERS })
-
-            cache.writeQuery({
-                query: GET_USERS,
-                data: {
-                    users: [
-                        ...users,
-                        createUser,
-                    ]
-                }
-            })
-           } */
+            //Pelo cache
+            /*  update: (cache, { data: { createUser } }) => {
+               const { users } = client.readQuery({ query: GET_USERS })
+   
+               cache.writeQuery({
+                   query: GET_USERS,
+                   data: {
+                       users: [
+                           ...users,
+                           createUser,
+                       ]
+                   }
+               })
+              } */
         })
-        console.log(data)
     }
 
     return (
