@@ -1,10 +1,10 @@
-import { useMutation } from '@apollo/client';
-import { FormEvent, useState } from 'react';
-import { CREATE_USER } from '../graphql/mutation/User';
-import { GET_USERS } from '../graphql/queries/Users';
 //import { client } from '../lib/apollo';
+import { useMutation } from "@apollo/client";
+import { FormEvent, useState } from "react";
+import { CREATE_USER } from "../graphql/mutation/User";
+import { GET_USERS } from "../graphql/queries/Users";
 
-export function NewUserForm() {
+const NewUserForm = () => {
     const [name, setName] = useState('');
     const [createUser] = useMutation(CREATE_USER);
 
@@ -24,19 +24,15 @@ export function NewUserForm() {
             refetchQueries: [GET_USERS]
 
             //Pelo cache
-            /*  update: (cache, { data: { createUser } }) => {
-               const { users } = client.readQuery({ query: GET_USERS })
-   
-               cache.writeQuery({
+            /*update: (cache, { data: { createUser } }) => {
+                const { users } = client.readQuery({ query: GET_USERS })
+                cache.writeQuery({
                    query: GET_USERS,
                    data: {
                        users: [
                            ...users,
                            createUser,
-                       ]
-                   }
-               })
-              } */
+                ]}})} */
         })
     }
 
@@ -47,3 +43,5 @@ export function NewUserForm() {
         </form>
     );
 }
+
+export default NewUserForm;
