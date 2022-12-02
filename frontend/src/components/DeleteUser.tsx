@@ -1,28 +1,21 @@
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
+import { DELETE_USER } from "../graphql/mutation/User";
 import { GET_USERS } from "../graphql/queries/Users";
 import { Button } from "../style";
 
-const DELETE_USER = gql`
-  mutation deleteUser($deleteUser: String!) {
-    deleteUser(id: $deleteUser)
-  }
-`;
+interface IProps { id: string }
 
-export function DeleteUser() {
+const DeleteUser = (props: IProps) => {
+  const { id } = props
   const [deleteUser] = useMutation(DELETE_USER);
-  const { data, loading } = useQuery(GET_USERS);
-
-  if (loading) return <p>loading...</p>;
 
   const onDeleteUser = () => {
-    console.log(data);
-
     deleteUser({
       variables: {
-        deleteUser: data.user[0].id,
+        deleteUser: id
       },
+      refetchQueries: [GET_USERS]
     });
-    console.log(data.user[0].id);
   };
 
   return (
@@ -31,3 +24,5 @@ export function DeleteUser() {
     </div>
   );
 }
+
+export default DeleteUser;
