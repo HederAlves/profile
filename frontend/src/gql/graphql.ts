@@ -16,7 +16,8 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation';
   createUser: User;
-  deleteUser: User;
+  deleteUser: Scalars['Boolean'];
+  updateUser: Scalars['Boolean'];
 };
 
 
@@ -27,6 +28,12 @@ export type MutationCreateUserArgs = {
 
 export type MutationDeleteUserArgs = {
   id: Scalars['String'];
+};
+
+
+export type MutationUpdateUserArgs = {
+  id: Scalars['String'];
+  name: Scalars['String'];
 };
 
 export type Query = {
