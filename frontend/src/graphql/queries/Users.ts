@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_USERS = gql`
-  query NewUserForm{
+  query createUser{
       user {
         id
         name  
