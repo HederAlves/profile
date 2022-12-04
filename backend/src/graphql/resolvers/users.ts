@@ -14,9 +14,12 @@ export class UserResolver {
 
     @Mutation(() => user)
     async createUser(
-        @Arg('name') name: string
+        @Arg('name') name: string,
+        @Arg('password') password: string,
+        @Arg('email') email: string,
+        @Arg('phone') phone: string,
     ) {
-        const user = { id: uuid(), name }
+        const user = { id: uuid(), name, password, email, phone };
         this.data.push(user)
         return user;
     }
@@ -40,14 +43,20 @@ export class UserResolver {
     async updateUser(
         @Ctx() _context: Context,
         @Arg("id") id: string,
-        @Arg("name") name: string
+        @Arg("name") name: string,
+        @Arg("password") password: string,
+        @Arg('email') email: string,
+        @Arg('phone') phone: string,
     ): Promise<boolean> {
         const index = this.data.findIndex(user => user.id === id);
         if (index > -1) {
             this.data[index].name = name;
+            this.data[index].password = password;
+            this.data[index].email = email;
+            this.data[index].phone = phone;
             return true;
         } {
-            const user = { id, name }
+            const user = { id, name, password, email, phone };
             this.data.push(user);
             return true;
         }

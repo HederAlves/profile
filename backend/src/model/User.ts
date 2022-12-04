@@ -7,10 +7,20 @@ export class user {
     @Field(__type => ID)
     id: string;
     
+    @Field()
+    name: string;
+
     //Validação
     //@length(10, 50)
     @Field()
-    name: string;
+    password: string;
+
+    @Field()
+    email: string;
+
+    @Field()
+    phone: string;
+
     static deleteUser: any;
     static updateUser: any;
 }
