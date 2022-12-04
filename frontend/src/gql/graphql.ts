@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -22,7 +23,10 @@ export type Mutation = {
 
 
 export type MutationCreateUserArgs = {
+  email: Scalars['String'];
   name: Scalars['String'];
+  password: Scalars['String'];
+  phone: Scalars['String'];
 };
 
 
@@ -32,8 +36,11 @@ export type MutationDeleteUserArgs = {
 
 
 export type MutationUpdateUserArgs = {
+  email: Scalars['String'];
   id: Scalars['String'];
   name: Scalars['String'];
+  password: Scalars['String'];
+  phone: Scalars['String'];
 };
 
 export type Query = {
@@ -43,6 +50,17 @@ export type Query = {
 
 export type User = {
   __typename?: 'user';
+  email: Scalars['String'];
   id: Scalars['ID'];
   name: Scalars['String'];
+  password: Scalars['String'];
+  phone: Scalars['String'];
 };
+
+export type UsersQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UsersQuery = { __typename?: 'Query', user: Array<{ __typename?: 'user', id: string, name: string, password: string, email: string, phone: string }> };
+
+
+export const UsersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"password"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"phone"}}]}}]}}]} as unknown as DocumentNode<UsersQuery, UsersQueryVariables>;
