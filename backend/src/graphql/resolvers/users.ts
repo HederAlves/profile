@@ -1,7 +1,7 @@
-import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
-import { user } from "../../model/User";
+import { Arg, Ctx, Mutation, Query, Resolver } from 'type-graphql';
+import { user } from '../../model/User';
 import { v4 as uuid } from 'uuid'
-import { Context } from "vm";
+import { Context } from 'vm';
 
 @Resolver()
 export class UserResolver {
@@ -27,7 +27,7 @@ export class UserResolver {
     @Mutation(_ => Boolean)
     async deleteUser(
         @Ctx() context: Context,
-        @Arg("id") id: string
+        @Arg('id') id: string
     ): Promise<boolean> {
         const index = this.data.findIndex(user => user.id === id);
         if (index > -1) {
@@ -42,9 +42,9 @@ export class UserResolver {
     @Mutation(_ => Boolean)
     async updateUser(
         @Ctx() _context: Context,
-        @Arg("id") id: string,
-        @Arg("name") name: string,
-        @Arg("password") password: string,
+        @Arg('id') id: string,
+        @Arg('name') name: string,
+        @Arg('password') password: string,
         @Arg('email') email: string,
         @Arg('phone') phone: string,
     ): Promise<boolean> {
