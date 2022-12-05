@@ -14,7 +14,7 @@ const View = () => {
   }
   return (
     <>
-    <Create id={""} name={""} />
+    <Create id={""} name={""} password={""} email={""} phone={""} />
     <Layout>
         {data?.user.map(_user => 
         <Card key={_user.id}>

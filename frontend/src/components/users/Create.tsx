@@ -1,26 +1,29 @@
 //import { client } from '../lib/apollo';
-import { useMutation } from "@apollo/client";
-import { FormEvent, useState } from "react";
-import { CREATE_USER } from "../../graphql/mutation/User";
-import { GET_USERS } from "../../graphql/queries/Users";
+import { useMutation } from '@apollo/client';
+import { FormEvent, useState } from 'react';
+import { CREATE_USER } from '../../graphql/mutation/User';
+import { GET_USERS } from '../../graphql/queries/Users';
 
-interface IProps { id: string, name: string }
+interface IProps { id: string, name: string, password: string, email: string, phone: string }
 
 const Create = (props: IProps) => {
-    var { id, name } = props
+    var { id, name, password, email, phone } = props
     var [name, setName] = useState('');
+    var [password, setPassword] = useState('');
+    var [email, setEmail] = useState('');
+    var [phone, setPhone] = useState('');
     const [createUser] = useMutation(CREATE_USER);
 
     async function handleCreateUser(event: FormEvent) {
         event.preventDefault();
 
-        if (!name) {
-            return false;
-        }
-
         await createUser({
             variables: {
-                createUser: name, id
+                id: id,
+                name: name,
+                password: password,
+                email: email,
+                phone: phone
             },
             refetchQueries: [GET_USERS]
             //Código acima busca do backend 
@@ -39,8 +42,11 @@ const Create = (props: IProps) => {
 
     return (
         <form onSubmit={handleCreateUser}>
-            <input type="text" value={name} onChange={e => setName(e.target.value)} />
-            <button type="submit">Cadastrar</button>
+            <input type='text' value={name} onChange={e => setName(e.target.value)} />
+            <input type='text' value={password} onChange={e => setPassword(e.target.value)} />
+            <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
+            <input type='text' value={phone} onChange={e => setPhone(e.target.value)} />
+            <button type='submit'>Cadastrar</button>
         </form>
     );
 }
