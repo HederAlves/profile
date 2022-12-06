@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { DELETE_USER } from "../../graphql/mutation/User";
 import { GET_USERS } from "../../graphql/queries/Users";
-import { Button } from "../../style";
+import { ButtonCardUser } from "./style";
 
 interface IProps { id: string }
 
@@ -19,9 +19,7 @@ const Delete = (props: IProps) => {
   };
 
   return (
-    <div>
-      <Button onClick={handleDeleteUser}>Excluir</Button>
-    </div>
+    <ButtonCardUser onClick={handleDeleteUser}>Excluir</ButtonCardUser>
   );
 }
 

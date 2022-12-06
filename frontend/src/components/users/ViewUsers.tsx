@@ -2,9 +2,8 @@ import { useQuery } from '@apollo/client';
 import { GET_USERS } from '../../graphql/queries/Users';
 import { User } from '../../types';
 import Delete from './Delete';
-import  userImg from '../../../public/user.png';
-import { Card, CardHeader, CardMain, ImgUser, InfoUser, Layout } from './style';
-import { Button } from '../../style';
+import  userImg from '../../../doc/images/user.png';
+import { ButtonCardUser, Card, CardHeader, CardMain, ImgUser, InfoUser, Layout } from './style';
 
 const View = () => {
   const { data, loading } = useQuery<{ user: User[] }>(GET_USERS);
@@ -26,7 +25,7 @@ const View = () => {
               <li>{_user.email}</li>
               <li>{_user.phone}</li>
             </InfoUser>
-            <Button>Atualizar</Button>
+            <ButtonCardUser>Atualizar</ButtonCardUser>
         </CardMain>
       </Card>)}
     </Layout>

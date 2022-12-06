@@ -19,7 +19,7 @@ export const DELETE_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-mutation UpdateUser($updateUser: String!) {
-    updateUser(phone: $updateUser, email: $updateUser, password: $updateUser, id: $updateUserId, name: $updateUser)
-  }
+  mutation UpdateUser($phone: String!, $email: String!, $password: String!, $name: String!, $id: String!){
+    updateUser(phone: $phone, email: $email, password: $password, name: $name, id: $id) 
+  } 
 `;

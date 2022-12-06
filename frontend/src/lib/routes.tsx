@@ -9,8 +9,8 @@ const  MainRoutes = () => {
         <Routes>
             <Route path="/" element={<ViewNews />} />
             <Route path="/users" element={<ViewUsers />} />
-            {<Route path="/login" element={<ViewLogin />} />}
-            {<Route path="/register" element={<ViewRegister />} />}
+            <Route path="/login" element={<ViewLogin />} />
+            <Route path="/register" element={<ViewRegister />} />
         </ Routes>
     )
 }
