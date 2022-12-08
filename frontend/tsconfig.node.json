@@ -5,5 +5,10 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts"],
+  "paths": {
+    "@entities-services/*": ["src/modules/database/services/*"],
+    "@entities/*": ["src/entities/*"],
+    "@modules/*": ["src/modules/*"]
+  }
 }

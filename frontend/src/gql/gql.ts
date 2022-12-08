@@ -13,13 +13,13 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  query Users{\n    user {\n      id\n      name\n      password\n      email\n      phone\n    }\n  } \n": types.UsersDocument,
+    "\n  query user{\n    user {\n      id\n      name\n      password\n      email\n      phone\n    }\n  } \n": types.UserDocument,
 };
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query Users{\n    user {\n      id\n      name\n      password\n      email\n      phone\n    }\n  } \n"): (typeof documents)["\n  query Users{\n    user {\n      id\n      name\n      password\n      email\n      phone\n    }\n  } \n"];
+export function graphql(source: "\n  query user{\n    user {\n      id\n      name\n      password\n      email\n      phone\n    }\n  } \n"): (typeof documents)["\n  query user{\n    user {\n      id\n      name\n      password\n      email\n      phone\n    }\n  } \n"];
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
