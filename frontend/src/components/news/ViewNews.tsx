@@ -1,9 +1,10 @@
 
-const View = () => {
+const ViewNews = () => {
   
     return (
       <h1>Hello World</h1>
     );
   }
   
-  export default View;  
+export default ViewNews;
+  

@@ -2,7 +2,8 @@ import { useMutation } from "@apollo/client";
 import { FormEvent, useState } from "react";
 import { UPDATE_USER } from "../../graphql/mutation/User";
 import { GET_USERS } from "../../graphql/queries/Users";
-import { Button } from "../../style";
+import { ButtonCardUser } from "./style";
+
 
 interface IProps { id: string, name: string, password: string, email: string, phone: string }
 
@@ -39,7 +40,7 @@ const Update = (props: IProps) => {
       <input type='text' value={password} onChange={e => setPassword(e.target.value)} />
       <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
       <input type='text' value={phone} onChange={e => setPhone(e.target.value)} />
-      <Button type="submit">Atualizar</Button>
+      <ButtonCardUser type="submit">Atualizar</ButtonCardUser>
     </form>
   );
 }

@@ -2,12 +2,15 @@ import { useQuery } from '@apollo/client';
 import { GET_USERS } from '../../graphql/queries/Users';
 import { User } from '../../types';
 import Delete from './Delete';
-import  userImg from '../../../doc/images/user.png';
+import userImg from '../../../doc/images/user.png';
 import { ButtonCardUser, Card, CardHeader, CardMain, ImgUser, InfoUser, Layout } from './style';
+import { Link } from 'react-router-dom';
+//import { useEffect } from 'react';
 
 const View = () => {
+  
   const { data, loading } = useQuery<{ user: User[] }>(GET_USERS);
-
+  
   if (loading) {
       return <p>Carregando...</p>;
   }
@@ -25,7 +28,9 @@ const View = () => {
               <li>{_user.email}</li>
               <li>{_user.phone}</li>
             </InfoUser>
-            <ButtonCardUser>Atualizar</ButtonCardUser>
+            <ButtonCardUser>
+              <Link to={_user.id}>Link teste</Link>
+            </ButtonCardUser>
         </CardMain>
       </Card>)}
     </Layout>

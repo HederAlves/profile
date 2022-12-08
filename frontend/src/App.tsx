@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { client } from "./lib/apollo";
 import Routes from './lib/routes'
-import './style/reset.css'
 
 function App() {
 
