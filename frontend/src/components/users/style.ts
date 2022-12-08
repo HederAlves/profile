@@ -13,7 +13,7 @@ export const SectionImageLoginRegister = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../../../../doc/images/bg-login-register.jpg");
+    background-image: url("../../../../assets/backgrounds/bg-login-register.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 50%;
@@ -124,3 +124,4 @@ export const ButtonCardUser = styled.button`
         color: #012C45;
      }
 `
+

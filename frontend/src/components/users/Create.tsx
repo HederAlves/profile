@@ -2,7 +2,6 @@
 import { useMutation } from '@apollo/client';
 import { FormEvent, useState } from 'react';
 import { CREATE_USER } from '../../graphql/mutation/User';
-import { GET_USERS } from '../../graphql/queries/Users';
 import imgNG from '../../../doc/images/ngi.png'
 import { 
     ButtonLoginRegister,
@@ -35,12 +34,7 @@ const Create = (props: IProps) => {
                 email: email,
                 phone: phone
             },
-            refetchQueries: [GET_USERS]
-            //Código acima busca do backend       
-            /*Código abaixo pelo cache
-            update: (cache, { data: { createUser } }) => {
-                const { users } = client.readQuery({ query: GET_USERS })
-                cache.writeQuery({ query: GET_USERS, data: { users: [ ...users, createUser,]}})} */
+            
         })
     }
 
@@ -68,7 +62,7 @@ const Create = (props: IProps) => {
                     <label>Digite seu telefone</label>
                     <input type='text' placeholder='(99)99999-99' value={phone} onChange={e => setPhone(e.target.value)} />
                 </LiFormLoginRegister>
-                <ButtonLoginRegister type='submit'>Cadastrar</ButtonLoginRegister>
+                    <ButtonLoginRegister type='submit'>Cadastrar</ButtonLoginRegister>
             </FormLoginRegister>
             <LinkCadastro>
                 <p>Faça seu</p>
