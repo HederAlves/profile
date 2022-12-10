@@ -8,6 +8,13 @@ export const LayoutLoginRegister = styled.body`
     margin: 0 auto;
     height: 100vh;
 `;
+export const LayoutRowDouble = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+`;
 export const SectionImageLoginRegister = styled.section`
     display: flex;
     flex-direction: column;
@@ -32,7 +39,7 @@ export const SectionImageTitleForm = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
 `;
 export const Title = styled.h1`
     font-size: 4vh;
