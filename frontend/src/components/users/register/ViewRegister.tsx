@@ -4,14 +4,14 @@ import { LayoutLoginRegister, SectionImageLoginRegister } from '../style';
 
 const View = () => {
 
-    return (
-        <LayoutLoginRegister>
-            <SectionImageLoginRegister>
-                <img src={imgNG} />
-            </SectionImageLoginRegister>
-            <Create id={''} name={''} password={''} email={''} phone={''} />
-        </LayoutLoginRegister>
-    );
+	return (
+		<LayoutLoginRegister>
+			<SectionImageLoginRegister>
+				<img src={imgNG} />
+			</SectionImageLoginRegister>
+			<Create id={''} name={''} password={''} email={''} phone={''} />
+		</LayoutLoginRegister>
+	);
 };
 
 export default View;

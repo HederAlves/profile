@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 //login | Register
 export const LayoutLoginRegister = styled.body`
@@ -7,7 +7,7 @@ export const LayoutLoginRegister = styled.body`
     align-items: center;
     margin: 0 auto;
     height: 100vh;
-`
+`;
 export const SectionImageLoginRegister = styled.section`
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@ export const SectionImageLoginRegister = styled.section`
     background-size: 100% 100%;
     width: 50%;
     height: 100vh;
-`
+`;
 export const SectionForm = styled.form`
     display: flex;
     flex-direction: column;
@@ -26,32 +26,32 @@ export const SectionForm = styled.form`
     gap: 6%;
     width: 50%;
     height: 100vh;
-`
+`;
 export const SectionImageTitleForm = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2px;
-`
+`;
 export const Title = styled.h1`
     font-size: 4vh;
     font-weight: bold;
     color: #012C45;
-`
+`;
 export const FormLoginRegister = styled.ul`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
-`
+`;
 export const LiFormLoginRegister = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-`
+`;
 export const ButtonLoginRegister = styled.button`
     background-color: #012C45;
     color: #0EDAF3;
@@ -65,18 +65,18 @@ export const ButtonLoginRegister = styled.button`
         background-color: #0EDAF3;
         color: #012C45;
      }
-`
+`;
 export const LinkCadastro = styled.section`
     display: flex;
     justify-content: center;
     gap: 1vh;
-`
+`;
 
 // Users
 export const Layout = styled.body`
     display: flex;
     flex-wrap: wrap;
-`
+`;
 export const Card = styled.section`
     display: flex;
     justify-content: center;
@@ -88,22 +88,22 @@ export const Card = styled.section`
     padding: 20px 5px;
     width: 31.5%;
     height: 150px;
-`
+`;
 export const CardHeader = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 20%;
-`
+`;
 export const CardMain = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
-`
+`;
 export const ImgUser = styled.img`
     border-radius: 100%;
-`
+`;
 export const InfoUser = styled.section`
     list-style: none;
     word-wrap: break-word;
@@ -111,7 +111,7 @@ export const InfoUser = styled.section`
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-`
+`;
 export const ButtonCardUser = styled.button`
     background-color: #012C45;
     padding: 5px;
@@ -123,5 +123,5 @@ export const ButtonCardUser = styled.button`
         background-color: #0EDAF3;
         color: #012C45;
      }
-`
+`;
 
