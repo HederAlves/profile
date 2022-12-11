@@ -35,7 +35,6 @@ const Create = (props: IProps) => {
 				phone: phone
 			},
 		});
-		const { handleRedirect } = useRedirect();
 	}
 
 	return (
@@ -73,7 +72,4 @@ const Create = (props: IProps) => {
 };
 
 export default Create;
-function useRedirect(): { handleRedirect: any; } {
-	throw new Error('Function not implemented.');
-}
 

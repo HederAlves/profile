@@ -13,7 +13,6 @@ const Update = (props: IProps) => {
 	var [phone, setPhone] = useState('');
 	const [updateUser] = useMutation(UPDATE_USER);
 
-  
 	async function handleUpdateUser(event: FormEvent) {
 
 		event.preventDefault();
@@ -32,7 +31,7 @@ const Update = (props: IProps) => {
 			},
 		});
 	}
-
+ 
 	return (
 		<SectionForm onSubmit={handleUpdateUser}>
 			<FormLoginRegister>
@@ -57,7 +56,6 @@ const Update = (props: IProps) => {
 			</FormLoginRegister>
 		</SectionForm>
 	);
-
 };
 
 export default Update;
