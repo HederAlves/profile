@@ -1,17 +1,19 @@
 import { useMutation } from '@apollo/client';
 import { FormEvent, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { UPDATE_USER } from '../../graphql/mutation/User';
 import { ButtonLoginRegister, FormLoginRegister, LiFormLoginRegister, SectionForm } from './style';
 
-interface IProps { id: string, name: string, password: string, email: string, phone: string }
+interface IProps { name: string, password: string, email: string, phone: string }
 
 const Update = (props: IProps) => {
-	var { id, name, password, email, phone } = props;
+	var { name, password, email, phone } = props;
 	var [name, setName] = useState('');
 	var [password, setPassword] = useState('');
 	var [email, setEmail] = useState('');
 	var [phone, setPhone] = useState('');
 	const [updateUser] = useMutation(UPDATE_USER);
+	var {id} = useParams();
 
 	async function handleUpdateUser(event: FormEvent) {
 
