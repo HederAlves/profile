@@ -16,6 +16,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.16",
+    "@types/material-ui": "^0.21.12",
     "@types/react-router-dom": "^5.3.3",
     "apollo-boost": "^0.4.9",
     "apollo-cache-inmemory": "^1.6.6",
@@ -27,6 +28,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
     "routes": "^2.1.0",
+    "sass": "^1.56.2",
     "styled-components": "^5.3.6",
     "styled-react-modal": "^3.0.1",
     "use-history": "^1.4.1"
