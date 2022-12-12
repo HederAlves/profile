@@ -1,11 +1,11 @@
 import { useQuery } from '@apollo/client';
 import { GET_USERS } from '../../graphql/queries/Users';
 import { User } from '../../types';
+import { ButtonSecund, LayoutRowWrap } from '../../commonStyles';
+import { Card, CardHeader, CardMain, ImgUser, InfoUser } from './style';
+import { Link, } from 'react-router-dom';
 import Delete from './Delete';
 import userImg from '../../../doc/images/user.png';
-import { ButtonCardUser, Card, CardHeader, CardMain, ImgUser, InfoUser, Layout } from './style';
-import { Link, } from 'react-router-dom';
-//import { useEffect } from 'react';
 
 const View = () => {
 
@@ -15,7 +15,7 @@ const View = () => {
     return <p>Carregando...</p>;
   }
   return (
-    <Layout>
+    <LayoutRowWrap>
       {data?.user.map(_user =>
         <Card key={_user.id}>
           <CardHeader>
@@ -29,11 +29,11 @@ const View = () => {
               <li>{_user.phone}</li>
             </InfoUser>
             <Link to={'/profile/' + _user.id}>
-              <ButtonCardUser>Atualizar</ButtonCardUser>
+              <ButtonSecund>Atualizar</ButtonSecund>
             </Link>
           </CardMain>
         </Card>)}
-    </Layout>
+    </LayoutRowWrap>
   );
 }
 

@@ -1,50 +1,38 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { TextField } from '@mui/material';
+import { ButtonPrimary, FormCol, LayoutRow, LinkPrimary, Title } from '../../../commonStyles';
+import { SectionForm, SectionImage, SectionTitle } from '../style';
 import imgNG from '../../../../doc/images/ngi.png';
 import imgLogo from '../../../../doc/images/ngi-logo.gif';
-import {
-	ButtonLoginRegister,
-	FormLoginRegister,
-	LayoutLoginRegister,
-	LiFormLoginRegister,
-	LinkCadastro, SectionForm,
-	SectionImageLoginRegister,
-	SectionImageTitleForm,
-	Title
-} from '../style';
 
 const View = () => {
-	const navigate = useNavigate();
 
 	return (
-		<LayoutLoginRegister>
-			<SectionImageLoginRegister>
+		<LayoutRow>
+			<SectionImage>
 				<img src={imgNG} />
-			</SectionImageLoginRegister>
+			</SectionImage>
 			<SectionForm>
-				<SectionImageTitleForm>
+				<SectionTitle>
 					<img src={imgLogo} />
 					<Title>Bem vindo !</Title>
-				</SectionImageTitleForm>
-				<FormLoginRegister>
-					<p>Faça seu login</p>
-					<LiFormLoginRegister>
-						<label>Digite sua nome</label>
-						<input type="text" placeholder='nome' />
-					</LiFormLoginRegister>
-					<LiFormLoginRegister>
-						<label>Digite sua senha</label>
-						<input type="password" placeholder='senha' />
-					</LiFormLoginRegister>
-					<ButtonLoginRegister onClick={() => {
-						navigate('./users');
-					}}>Entrar</ButtonLoginRegister>
-				</FormLoginRegister>
-				<LinkCadastro>
-					<p>Faça já seu</p>
-					<a href='register'>Cadastro</a>
-				</LinkCadastro>
+				</SectionTitle>
+				<p>Faça seu login</p>
+				<FormCol>
+					<TextField id="outlined-basic" label="Nome" variant="outlined" />
+					<TextField id="outlined-basic" label="Senha" variant="outlined" type="password" />
+					<Link to={'/users'}>
+						<ButtonPrimary>
+							Entrar
+						</ButtonPrimary>
+					</Link>
+					<LinkPrimary>
+						<p>Faça já seu</p>
+						<Link to={'/register'} >Cadastro</Link>
+					</LinkPrimary>
+				</FormCol>
 			</SectionForm>
-		</LayoutLoginRegister>
+		</LayoutRow>
 	);
 };
 

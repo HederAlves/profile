@@ -1,16 +1,17 @@
+import { LayoutRow } from '../../../commonStyles';
+import { SectionImage} from '../style';
 import imgNG from '../../../../doc/images/ngi.png';
 import Create from '../Create';
-import { LayoutLoginRegister, SectionImageLoginRegister } from '../style';
 
 const View = () => {
 
 	return (
-		<LayoutLoginRegister>
-			<SectionImageLoginRegister>
+		<LayoutRow>
+			<SectionImage>
 				<img src={imgNG} />
-			</SectionImageLoginRegister>
+			</SectionImage>
 			<Create id={''} name={''} password={''} email={''} phone={''} />
-		</LayoutLoginRegister>
+		</LayoutRow>
 	);
 };
 
