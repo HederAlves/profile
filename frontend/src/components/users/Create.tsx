@@ -2,16 +2,11 @@
 import { useMutation } from '@apollo/client';
 import { FormEvent, useState } from 'react';
 import { CREATE_USER } from '../../graphql/mutation/User';
+import { SectionForm, SectionTitle } from './style';
+import { Link, useNavigate } from 'react-router-dom';
+import { TextField } from '@mui/material';
+import { ButtonPrimary, FormRowWrap, LinkPrimary, Title } from '../../commonStyles';
 import imgNG from '../../../doc/images/ngi-logo.gif';
-import { 
-	ButtonLoginRegister,
-	FormLoginRegister, 
-	LiFormLoginRegister, 
-	LinkCadastro, 
-	SectionForm, 
-	SectionImageTitleForm, 
-	Title 
-} from './style';
 
 interface IProps { id: string, name: string, password: string, email: string, phone: string }
 
@@ -22,54 +17,39 @@ const Create = (props: IProps) => {
 	var [email, setEmail] = useState('');
 	var [phone, setPhone] = useState('');
 	const [createUser] = useMutation(CREATE_USER);
+	const navigate = useNavigate()
 
 	async function handleCreateUser(event: FormEvent) {
 		event.preventDefault();
 
 		await createUser({
 			variables: {
-				id: id,
-				name: name,
-				password: password,
-				email: email,
-				phone: phone
+				createUser: id, name, password, email, phone
 			},
 		});
-	}
+		navigate('/login');
+	};
 
 	return (
 		<SectionForm onSubmit={handleCreateUser}>
-			<SectionImageTitleForm>
+			<SectionTitle>
 				<img src={imgNG} alt="" />
 				<Title>Bem vindo !</Title>
-			</SectionImageTitleForm>
-			<FormLoginRegister>
-				<p>Crie sua conta</p>
-				<LiFormLoginRegister>
-					<label>Digite seu nome</label>
-					<input type='text' placeholder='Nome' value={name} onChange={e => setName(e.target.value)} />
-				</LiFormLoginRegister>
-				<LiFormLoginRegister>
-					<label>Digite seu senha</label>
-					<input type="password" placeholder='Senha' value={password} onChange={e => setPassword(e.target.value)} />
-				</LiFormLoginRegister>
-				<LiFormLoginRegister>
-					<label>Digite seu email</label>
-					<input type='text' placeholder='seuemail@email.com' value={email} onChange={e => setEmail(e.target.value)} />
-				</LiFormLoginRegister>
-				<LiFormLoginRegister>
-					<label>Digite seu telefone</label>
-					<input type='text' placeholder='(99)99999-99' value={phone} onChange={e => setPhone(e.target.value)} />
-				</LiFormLoginRegister>
-				<ButtonLoginRegister type='submit'>Cadastrar</ButtonLoginRegister>
-			</FormLoginRegister>
-			<LinkCadastro>
+			</SectionTitle>
+			<p>Crie sua conta</p>
+			<FormRowWrap>
+				<TextField helperText="Por favor insira seu nome" id="outlined-basic" label="Nome" variant="outlined" type="text" value={name} onChange={e => setName(e.target.value)} />
+				<TextField helperText="Por favor insira sua senha" id="outlined-basic" label="Senha" variant="outlined" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+				<TextField helperText="Por favor insira seu email" id="outlined-basic" label="Email" variant="outlined" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+				<TextField helperText="Por favor insira seu telefone" id="outlined-basic" label="Telefone" variant="outlined" type="phone" value={phone} onChange={e => setPhone(e.target.value)} />
+				<ButtonPrimary type='submit' >Cadastrar</ButtonPrimary>
+			</FormRowWrap>
+			<LinkPrimary>
 				<p>Faça seu</p>
-				<a href="login">login</a>
-			</LinkCadastro>
+				<Link to={'/login'} >Login</Link>
+			</LinkPrimary>
 		</SectionForm>
 	);
 };
 
 export default Create;
-

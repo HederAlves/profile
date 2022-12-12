@@ -1,8 +1,11 @@
 import { useMutation } from '@apollo/client';
+import { TextField } from '@mui/material';
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { ButtonPrimary, FormRowWrap } from '../../commonStyles';
 import { UPDATE_USER } from '../../graphql/mutation/User';
-import { ButtonLoginRegister, FormLoginRegister, LiFormLoginRegister, SectionForm } from './style';
+import { GET_USERS } from '../../graphql/queries/Users';
+import { SectionForm } from './style';
 
 interface IProps { name: string, password: string, email: string, phone: string }
 
@@ -13,7 +16,8 @@ const Update = (props: IProps) => {
 	var [email, setEmail] = useState('');
 	var [phone, setPhone] = useState('');
 	const [updateUser] = useMutation(UPDATE_USER);
-	var {id} = useParams();
+	var { id } = useParams();
+	const navigate = useNavigate()
 
 	async function handleUpdateUser(event: FormEvent) {
 
@@ -31,31 +35,21 @@ const Update = (props: IProps) => {
 				phone: phone,
 				id: id,
 			},
+			refetchQueries: [GET_USERS]
 		});
+		navigate('/users');
 	}
- 
+
 	return (
 		<SectionForm onSubmit={handleUpdateUser}>
-			<FormLoginRegister>
-				<p>Atualize seus dados</p>
-				<LiFormLoginRegister>
-					<label>Digite seu nome</label>
-					<input type='text' placeholder='Nome' value={name} onChange={e => setName(e.target.value)} />
-				</LiFormLoginRegister>
-				<LiFormLoginRegister>
-					<label>Digite seu senha</label>
-					<input type="password" placeholder='Senha' value={password} onChange={e => setPassword(e.target.value)} />
-				</LiFormLoginRegister>
-				<LiFormLoginRegister>
-					<label>Digite seu email</label>
-					<input type='text' placeholder='seuemail@email.com' value={email} onChange={e => setEmail(e.target.value)} />
-				</LiFormLoginRegister>
-				<LiFormLoginRegister>
-					<label>Digite seu telefone</label>
-					<input type='text' placeholder='(99)99999-99' value={phone} onChange={e => setPhone(e.target.value)} />
-				</LiFormLoginRegister>
-				<ButtonLoginRegister type='submit'>Atualizar</ButtonLoginRegister>
-			</FormLoginRegister>
+			<p>Atualize seus dados</p>
+			<FormRowWrap>
+				<TextField helperText="Por favor insira seu nome" id="outlined-basic" label="Nome" variant="outlined" type="text" value={name} onChange={e => setName(e.target.value)} />
+				<TextField helperText="Por favor insira sua senha" id="outlined-basic" label="Senha" variant="outlined" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+				<TextField helperText="Por favor insira seu email" id="outlined-basic" label="Email" variant="outlined" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+				<TextField helperText="Por favor insira seu telefone" id="outlined-basic" label="Telefone" variant="outlined" type="phone" value={phone} onChange={e => setPhone(e.target.value)} />
+				<ButtonPrimary type='submit'>Atualizar</ButtonPrimary>
+			</FormRowWrap>
 		</SectionForm>
 	);
 };

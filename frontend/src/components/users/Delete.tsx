@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client';
+import { ButtonSecund } from '../../commonStyles';
 import { DELETE_USER } from '../../graphql/mutation/User';
 import { GET_USERS } from '../../graphql/queries/Users';
-import { ButtonCardUser } from './style';
 
 interface IProps { id: string }
 
@@ -17,10 +17,7 @@ const Delete = (props: IProps) => {
 			refetchQueries: [GET_USERS]
 		});
 	};
-
-	return (
-		<ButtonCardUser onClick={handleDeleteUser}>Excluir</ButtonCardUser>
-	);
+	return <ButtonSecund onClick={handleDeleteUser}>Excluir</ButtonSecund>
 };
 
 export default Delete;
