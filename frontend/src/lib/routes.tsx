@@ -23,7 +23,6 @@
 //export default MainRoutes
 
 import { createBrowserRouter } from 'react-router-dom';
-import ViewNews from '../components/news/ViewNews';
 import ViewLogin from '../components/users/login/ViewLogin';
 import ViewProfile from '../components/users/profile/ViewProfile';
 import ViewRegister from '../components/users/register/ViewRegister';
@@ -32,21 +31,17 @@ import ViewUsers from '../components/users/ViewUsers';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <ViewNews />,
-	},
-	{
-		path: '/login',
 		element: <ViewLogin />,
 	},
 	{
-		path: '/register',
+		path: '/cadastro',
 		element: <ViewRegister />,
 	}, {
-		path: '/users',
+		path: '/usuarios',
 		element: <ViewUsers />,
 	},
 	{
-		path: '/profile/:id',
+		path: '/perfil/:id',
 		element: <ViewProfile />,
 	},
 
