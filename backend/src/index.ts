@@ -1,20 +1,25 @@
-import { AppDataSource } from "./data-source"
-import { User } from "./entity/User"
+import "reflect-metadata";
+import { ApolloServer } from 'apollo-server';
+import { buildSchema } from 'type-graphql';
+import path = require("path");
+import { createConnection } from "typeorm";
 
-AppDataSource.initialize().then(async () => {
+async function main(){
+    createConnection()
 
-    console.log("Inserting a new user into the database...")
-    const user = new User()
-    user.firstName = "Timber"
-    user.lastName = "Saw"
-    user.age = 25
-    await AppDataSource.manager.save(user)
-    console.log("Saved a new user with id: " + user.id)
+    const schema = await buildSchema({
+        resolvers: [
+            `${__dirname}/graphql/resolvers/*`
+        ],
+        emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
+    })
 
-    console.log("Loading users from the database...")
-    const users = await AppDataSource.manager.find(User)
-    console.log("Loaded users: ", users)
+    const apolloServer = new ApolloServer({
+        schema
+    })
 
-    console.log("Here you can setup and run express / fastify / any other framework.")
+    await apolloServer.listen(4000)
+    console.log(`Server running on port 4000`);
+}
 
-}).catch(error => console.log(error))
+main()
