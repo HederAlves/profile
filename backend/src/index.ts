@@ -2,11 +2,11 @@ import "reflect-metadata";
 import { ApolloServer } from 'apollo-server';
 import { buildSchema } from 'type-graphql';
 import path = require("path");
-import { createConnection } from "typeorm";
+import { dataSource } from "./data-source";
+
 
 async function main(){
-    createConnection()
-
+    
     const schema = await buildSchema({
         resolvers: [
             `${__dirname}/graphql/resolvers/*`
@@ -22,4 +22,11 @@ async function main(){
     console.log(`Server running on port 4000`);
 }
 
-main()
+dataSource.initialize()
+    .then(() => {
+        console.log("Data Source has been initialized!")
+    })
+    .catch((err) => {
+        console.error("Error during Data Source initialization", err)
+    })
+main();
