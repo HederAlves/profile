@@ -7,6 +7,14 @@ import { dataSource } from "./data-source";
 
 async function main(){
     
+    dataSource.initialize()
+    .then(() => {
+        console.log("Data Source has been initialized!")
+    })
+    .catch((err) => {
+        console.error("Error during Data Source initialization", err)
+    }) 
+    
     const schema = await buildSchema({
         resolvers: [
             `${__dirname}/graphql/resolvers/*`
@@ -22,11 +30,4 @@ async function main(){
     console.log(`Server running on port 4000`);
 }
 
-dataSource.initialize()
-    .then(() => {
-        console.log("Data Source has been initialized!")
-    })
-    .catch((err) => {
-        console.error("Error during Data Source initialization", err)
-    })
 main();
