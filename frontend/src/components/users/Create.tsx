@@ -27,7 +27,7 @@ const Create = (props: IProps) => {
 				createUser: id, name, password, email, phone
 			},
 		});
-		navigate('/login');
+		navigate('/');
 	};
 
 	return (
@@ -46,7 +46,7 @@ const Create = (props: IProps) => {
 			</FormRowWrap>
 			<LinkPrimary>
 				<p>Faça seu</p>
-				<Link to={'/login'} >Login</Link>
+				<Link to={'/'} >Login</Link>
 			</LinkPrimary>
 		</SectionForm>
 	);

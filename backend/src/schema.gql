@@ -14,9 +14,11 @@ type Query {
 }
 
 type user {
+  deleteUser: String!
   email: String!
   id: ID!
   name: String!
   password: String!
   phone: String!
+  updateUser: String!
 }
