@@ -21,14 +21,14 @@ const View = () => {
 				<FormCol>
 					<TextField id="outlined-basic" label="Nome" variant="outlined" />
 					<TextField id="outlined-basic" label="Senha" variant="outlined" type="password" />
-					<Link to={'/users'}>
+					<Link to={'/usuarios'}>
 						<ButtonPrimary>
 							Entrar
 						</ButtonPrimary>
 					</Link>
 					<LinkPrimary>
 						<p>Faça já seu</p>
-						<Link to={'/register'} >Cadastro</Link>
+						<Link to={'/cadastro'} >Cadastro</Link>
 					</LinkPrimary>
 				</FormCol>
 			</SectionForm>

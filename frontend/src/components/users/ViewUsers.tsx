@@ -28,7 +28,7 @@ const View = () => {
               <li>{_user.email}</li>
               <li>{_user.phone}</li>
             </InfoUser>
-            <Link to={'/profile/' + _user.id}>
+            <Link to={'/perfil/' + _user.id}>
               <ButtonSecund>Atualizar</ButtonSecund>
             </Link>
           </CardMain>

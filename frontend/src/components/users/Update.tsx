@@ -37,7 +37,7 @@ const Update = (props: IProps) => {
 			},
 			refetchQueries: [GET_USERS]
 		});
-		navigate('/users');
+		navigate('/usuarios');
 	}
 
 	return (
