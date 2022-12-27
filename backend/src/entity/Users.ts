@@ -3,24 +3,11 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 @Entity()
 export class users {
 
-    @PrimaryGeneratedColumn()
-    id: number
-
-    @Column()
-    user_name: string
-
-    @Column()
-    user_password: string
-
-    @Column()
-    user_email: string
-
-    @Column()
-    user_phone: number
-
-    @CreateDateColumn()
-    createdAt: Date;
-  
-    @UpdateDateColumn()
-    updatedAt: Date;
+    @PrimaryGeneratedColumn() id: number
+    @Column() name: string
+    @Column() password: string
+    @Column() email: string
+    @Column() phone: number
+    @CreateDateColumn() createdAt: Date;
+    @UpdateDateColumn() updatedAt: Date;
 }

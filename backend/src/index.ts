@@ -4,16 +4,9 @@ import { buildSchema } from 'type-graphql';
 import path = require("path");
 import { dataSource } from "./data-source";
 
+dataSource.initialize()
 
 async function main(){
-    
-    dataSource.initialize()
-    .then(() => {
-        console.log("Data Source has been initialized!")
-    })
-    .catch((err) => {
-        console.error("Error during Data Source initialization", err)
-    }) 
     
     const schema = await buildSchema({
         resolvers: [

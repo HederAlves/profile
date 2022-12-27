@@ -3,9 +3,9 @@
    "version": "1.0.0",
    "main": "index.js",
    "scripts": {
-      "start": "ts-node src/index.ts",
-		"migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
-		"migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run",
+      "start": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts",
+      "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
+      "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run",
       "codegen": "graphql-codegen --config codegen.yml",
       "typeorm": "typeorm-ts-node-commonjs"
    },
