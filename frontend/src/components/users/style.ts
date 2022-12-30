@@ -29,7 +29,7 @@ export const SectionTitle = styled.section`
     gap: 4px;
 `;
 
-// Users
+// Card Users
 export const Card = styled.section`
     display: flex;
     justify-content: center;
