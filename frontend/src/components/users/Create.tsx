@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { TextField } from '@mui/material';
 import { ButtonPrimary, FormRowWrap, LinkPrimary, Title } from '../../commonStyles';
 import imgNG from '../../../doc/images/ngi-logo.gif';
+import { GET_USERS } from '../../graphql/queries/Users';
 
 interface IProps { id: string, name: string, password: string, email: string, phone: string }
 
@@ -26,6 +27,7 @@ const Create = (props: IProps) => {
 			variables: {
 				createUser: id, name, password, email, phone
 			},
+			refetchQueries: [GET_USERS]
 		});
 		navigate('/');
 	};
