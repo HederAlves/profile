@@ -1516,6 +1516,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-native@*":
+  version "0.70.8"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.70.8.tgz#3302a0f7eddcd3350448ca17a9e415d02b1efde6"
+  integrity sha512-jvs5QMOrlyi0ScfT5Brha2roDoOWtbIOadNkp0jsueVen5+pH4SQAYtzL6xu0+dIcx3J/5LtZ/JYby2C1/zUug==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-router-dom@^5.3.3":
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
@@ -1558,6 +1565,15 @@
   version "7.3.13"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.13.tgz#da4bfd73f49bd541d28920ab0e2bf0ee80f71c91"
   integrity sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==
+
+"@types/styled-components-react-native@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@types/styled-components-react-native/-/styled-components-react-native-5.2.0.tgz#0299813cafd059c81dd4e056f5e098419d5404f0"
+  integrity sha512-J5w74FBkXjHO9+9gYX2CgwEWFDE1LxrBUhmkoc0y1tLZ8RoQ0AZEgljXvqY2dl5rRkTgh941VpmPKnntIyVNtg==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+    "@types/styled-components" "*"
 
 "@types/styled-components@*", "@types/styled-components@^5.1.26":
   version "5.1.26"
