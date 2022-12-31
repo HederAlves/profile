@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, RouterProvider } from 'react-router-dom';
 import client from './lib/apollo';
-import router from './lib/routes';
+import router from './lib/Routes';
 
 function App() {
 
