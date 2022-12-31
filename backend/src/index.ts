@@ -3,7 +3,6 @@ import { ApolloServer } from 'apollo-server';
 import { buildSchema } from 'type-graphql';
 import path = require("path");
 import { dataSource } from "./data-source";
-import createUserService from "./service/create-users-service";
 
 dataSource.initialize()
 
