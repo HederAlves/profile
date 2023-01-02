@@ -6,6 +6,7 @@ import { Card, CardHeader, CardMain, ImgUser, InfoUser } from './style';
 import { Link, } from 'react-router-dom';
 import Delete from './Delete';
 import userImg from '../../../doc/images/user.png';
+import NavBar from '../atoms/NavBar';
 
 const View = () => {
 
