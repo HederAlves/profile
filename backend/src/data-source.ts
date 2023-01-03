@@ -3,7 +3,7 @@ import { DataSource } from "typeorm"
 import { users } from "./entity/users"
 import { default1672064350865 } from "./migrations/1672064350865-default"
 
-export const dataSource = new DataSource({
+const dataSource = new DataSource({
     type: "postgres",
     host: "localhost",
     port: 5433,
@@ -15,3 +15,5 @@ export const dataSource = new DataSource({
     entities: [users],
     migrations: [default1672064350865]
 })
+
+export default dataSource;
