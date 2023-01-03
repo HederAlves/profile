@@ -1,7 +1,7 @@
-import { dataSource } from "../data-source";
+import dataSource from "../data-source";
 import { users } from "../entity/users";
 
-const createUserService = dataSource
+dataSource
     .createQueryBuilder()
     .insert()
     .into(users)
@@ -12,4 +12,3 @@ const createUserService = dataSource
         phone: 89798798798
     }])
     .execute()
-export default createUserService;
