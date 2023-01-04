@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 
 //Global
-export const LayoutRow = styled.body`
+export const LayoutRow = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+`;
+export const LayoutRowProfile = styled.main`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 `;
 export const LayoutRowWrap = styled.body`
     display: flex;
