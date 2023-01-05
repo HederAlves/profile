@@ -6,7 +6,7 @@ import { Card, CardHeader, CardMain, ImgUser, InfoUser } from './style';
 import { Link, } from 'react-router-dom';
 import Delete from './Delete';
 import userImg from '../../../doc/images/user.png';
-import NavBar from '../atoms/NavBar';
+import NavBar from '../atoms/Template';
 
 const View = () => {
 
@@ -16,25 +16,29 @@ const View = () => {
     return <p>Carregando...</p>;
   }
   return (
-    <LayoutRowWrap>
-      {data?.user.map(_user =>
-        <Card key={_user.id}>
-          <CardHeader>
-            <ImgUser src={userImg} alt='imagem do usuário' />
-            <Delete id={_user.id} />
-          </CardHeader>
-          <CardMain>
-            <InfoUser>
-              <li>{_user.name}</li>
-              <li>{_user.email}</li>
-              <li>{_user.phone}</li>
-            </InfoUser>
-            <Link to={'/perfil/' + _user.id}>
-              <ButtonSecund>Atualizar</ButtonSecund>
-            </Link>
-          </CardMain>
-        </Card>)}
-    </LayoutRowWrap>
+    <>
+    <NavBar />
+      <LayoutRowWrap>
+        {data?.user.map(_user =>
+          <Card key={_user.id}>
+            <CardHeader>
+              <ImgUser src={userImg} alt='imagem do usuário' />
+              <Delete id={_user.id} />
+            </CardHeader>
+            <CardMain>
+              <InfoUser>
+                <li>{_user.name}</li>
+                <li>{_user.email}</li>
+                <li>{_user.phone}</li>
+              </InfoUser>
+              <Link to={'/perfil/' + _user.id}>
+                <ButtonSecund>Atualizar</ButtonSecund>
+              </Link>
+            </CardMain>
+          </Card>)}
+      </LayoutRowWrap>
+    </>
+
   );
 }
 

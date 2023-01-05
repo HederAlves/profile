@@ -19,7 +19,7 @@ export const SectionForm = styled.form`
     text-align: center;
     gap: 6%;
     width: 50%;
-    height: 100vh;
+    height: 80vh;
 `;
 export const SectionTitle = styled.section`
     display: flex;
@@ -56,6 +56,7 @@ export const CardMain = styled.main`
 `;
 export const ImgUser = styled.img`
     border-radius: 100%;
+    height: 55%;
 `;
 export const InfoUser = styled.section`
     list-style: none;

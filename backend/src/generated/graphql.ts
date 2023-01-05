@@ -50,11 +50,13 @@ export type Query = {
 
 export type User = {
   __typename?: 'user';
+  deleteUser: Scalars['String'];
   email: Scalars['String'];
   id: Scalars['ID'];
   name: Scalars['String'];
   password: Scalars['String'];
   phone: Scalars['String'];
+  updateUser: Scalars['String'];
 };
 
 
@@ -155,11 +157,13 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['user'] = ResolversParentTypes['user']> = {
+  deleteUser?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   password?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   phone?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updateUser?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
