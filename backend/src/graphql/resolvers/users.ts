@@ -2,9 +2,10 @@ import { Arg, Ctx, Mutation, Query, Resolver } from 'type-graphql';
 import { user } from '../../model/User';
 import { v4 as uuid } from 'uuid'
 import { Context } from 'vm';
+import UsersRepository from '../../repositories/usersRepository';
 @Resolver()
 export class UserResolver {
-    private data: user[] = [];
+    private data: UsersRepository[] = [];
 
     @Query(() => [user])
     async user() {
