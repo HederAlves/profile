@@ -3,6 +3,7 @@ import { user } from '../model/User';
 
 @EntityRepository(user)
 export default class UsersRepository extends Repository<user> {
+  name: string;
   static create(user: any) {
       throw new Error('Method not implemented.');
   }
